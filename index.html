@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="it" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.remove('no-js')</script>
+<title>Effe Auto Service — officina multimarca e auto usate in Via Ettore Ponti 41, Milano</title>
+<meta name="description" content="Effe Auto Service, Via Ettore Ponti 41 a Milano (Barona): officina multimarca da più di trent'anni, tagliandi, diagnosi con la centralina, riparazioni, e auto usate preparate in officina. Telefono 02 891 1582.">
+<link rel="canonical" href="https://rotenzark.github.io/effe-auto-service/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Effe Auto Service — Tagliandata da noi.">
+<meta property="og:description" content="Officina multimarca e auto usate in Via Ettore Ponti 41, Milano: i tagliandi dei clienti di sempre e le usate che passano prima dall'officina.">
+<meta property="og:image" content="https://rotenzark.github.io/effe-auto-service/img/og.jpg">
+<meta property="og:url" content="https://rotenzark.github.io/effe-auto-service/">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1F3C8C">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Damion&family=Nanum+Pen+Script&family=Shrikhand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=1">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="js/main.js?v=1" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":["AutoRepair","AutoDealer"],"name":"Effe Auto Service","legalName":"Effe Auto Service S.r.l.","description":"Officina multimarca a Milano da più di trent'anni e auto usate preparate in officina.","image":"https://rotenzark.github.io/effe-auto-service/img/og.jpg","url":"https://rotenzark.github.io/effe-auto-service/","telephone":"+39028911582","faxNumber":"+39028911582","vatID":"IT08080250155","address":{"@type":"PostalAddress","streetAddress":"Via Ettore Ponti 41","postalCode":"20143","addressLocality":"Milano","addressRegion":"MI","addressCountry":"IT"},"geo":{"@type":"GeoCoordinates","latitude":45.4418,"longitude":9.1539},"contactPoint":[{"@type":"ContactPoint","telephone":"+393756130147","contactType":"sales","description":"Auto usate: chiedere di Andrea"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:30","closes":"12:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"14:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"12:30"}],"paymentAccepted":"Carte di credito, carte di debito, pagamenti contactless"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Su quali marche lavorate?","acceptedAnswer":{"@type":"Answer","text":"Sulle più diffuse: siamo un'officina multimarca, con un'esperienza particolare sulle Fiat."}},
+{"@type":"Question","name":"Come si prenota?","acceptedAnswer":{"@type":"Answer","text":"Al telefono, allo 02 891 1582. Conviene prenotare."}},
+{"@type":"Question","name":"Avete un'auto sostitutiva?","acceptedAnswer":{"@type":"Answer","text":"Su richiesta: chiedetela quando prenotate."}},
+{"@type":"Question","name":"Vendete auto usate?","acceptedAnswer":{"@type":"Answer","text":"Sì. Le auto disponibili sono sul nostro profilo AutoScout24; per informazioni chiedete di Andrea, al 375 613 0147."}},
+{"@type":"Question","name":"Le usate passano dall'officina?","acceptedAnswer":{"@type":"Answer","text":"Sì: prima della consegna le prepariamo in officina. Chiedete ad Andrea cosa è stato fatto sull'auto che vi interessa."}},
+{"@type":"Question","name":"Riparate le auto a noleggio a lungo termine?","acceptedAnswer":{"@type":"Answer","text":"Siamo centro convenzionato LeasePlan, oggi Ayvens. Per le altre società di noleggio, chiedeteci."}},
+{"@type":"Question","name":"Quali sono gli orari?","acceptedAnswer":{"@type":"Answer","text":"Dal lunedì al venerdì dalle 8:30 alle 12:30 e dalle 14 alle 18, il sabato dalle 9 alle 12:30. La domenica è chiuso."}}
+]}
+</script>
+</head>
+<body>
+
+<div id="intro" class="intro" aria-hidden="true">
+  <div class="intro__in">
+    <p class="marchio marchio--grande"><span class="marchio__effe">EFFE</span><span class="marchio__sotto">Auto Service</span></p>
+    <p class="intro__cosa" data-i18n="i.cosa">libretto di manutenzione</p>
+  </div>
+  <button class="intro__salta" id="introSkip" type="button" data-i18n="i.skip">Salta</button>
+</div>
+
+<header class="testata">
+  <a class="testata__logo" href="#copertina" aria-label="Effe Auto Service, torna all'inizio" data-i18n-aria="m.top"><span class="marchio"><span class="marchio__effe">EFFE</span><span class="marchio__sotto">Auto Service</span></span></a>
+  <nav id="mainNav" class="testata__nav" aria-label="Pagine del libretto" data-i18n-aria="m.nav">
+    <a href="#dati"><span class="pg" aria-hidden="true">p.1</span><span data-i18n="n.dati">L'officina</span></a>
+    <a href="#manutenzione"><span class="pg" aria-hidden="true">p.2</span><span data-i18n="n.manutenzione">Manutenzione</span></a>
+    <a href="#registro"><span class="pg" aria-hidden="true">p.3</span><span data-i18n="n.registro">Registro</span></a>
+    <a href="#usato"><span class="pg" aria-hidden="true">p.4</span><span data-i18n="n.usato">L'usato</span></a>
+    <a href="#note"><span class="pg" aria-hidden="true">p.5</span><span data-i18n="n.note">Recensioni</span></a>
+    <a href="#orari"><span class="pg" aria-hidden="true">p.6</span><span data-i18n="n.orari">Orari</span></a>
+  </nav>
+  <div class="testata__destra">
+    <div class="lingue" role="group" aria-label="Lingua" data-i18n-aria="m.lingua">
+      <button type="button" data-lang="it" aria-pressed="true">IT</button><button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="testata__tel" href="tel:+39028911582"><span data-i18n="n.tel">Chiamate</span></a>
+    <button id="burger" type="button" aria-label="Apri il menu" aria-controls="mainNav" aria-expanded="false" data-i18n-aria="m.menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+  <section id="copertina" class="copertina" aria-labelledby="titolo">
+    <div class="copertina__banda" aria-hidden="true"><span data-i18n="h.banda">Libretto di manutenzione</span><span>Via Ettore Ponti 41 · Milano</span></div>
+    <div class="copertina__corpo">
+      <div class="copertina__testo">
+        <p class="kicker" data-i18n="h.k">Officina multimarca e auto usate · Barona</p>
+        <h1 id="titolo" class="copertina__t" data-i18n="h.t">Tagliandata<br>da noi.</h1>
+        <p class="copertina__s" data-i18n="h.s">Siamo un'officina multimarca, a Milano da più di trent'anni. I clienti di sempre ci portano la loro auto per il tagliando; e le auto usate che vendiamo le prepariamo in officina prima di consegnarle.</p>
+        <div class="azioni">
+          <a class="btn btn--rosso" href="tel:+39028911582"><span data-i18n="h.tel">Chiamate per prenotare</span><small>02 891 1582</small></a>
+          <a class="btn btn--linea" href="#usato"><span data-i18n="h.usato">Le nostre usate</span></a>
+        </div>
+        <p class="copertina__voti"><span aria-hidden="true">★</span> <span data-i18n="h.voti">4,7 su 91 recensioni Google · 4,8 su 57 su AutoScout24</span> <span id="orarioStato" aria-live="polite"></span></p>
+      </div>
+
+      <figure class="libretto" id="libretto">
+        <div class="libretto__pagina">
+          <div class="libretto__testa"><span class="mono" data-i18n="f.testa">Tagliandi di manutenzione</span><span class="libretto__marchio" aria-hidden="true">EFFE</span></div>
+          <ol class="tagliandi" id="tagliandi">
+            <li class="riga is-staccato" data-n="1">
+              <div class="matrice">
+                <p class="matrice__n mono"><span data-i18n="f.n">Tagliando n.</span> 1</p>
+                <p class="matrice__km">15.000 km</p>
+                <p class="matrice__campo"><span class="matrice__eti mono" data-i18n="f.eseguito">Eseguito</span><span class="penna">✓ Effe Auto Service</span></p>
+              </div>
+              <div class="tagliando" aria-hidden="true">
+                <p class="tagliando__km">15.000 km</p>
+                <div class="tagliando__corpo">
+                  <p class="tagliando__t" data-i18n="f.t">Tagliando di manutenzione</p>
+                  <p class="tagliando__campi"><span data-i18n="f.auto">Autoveicolo</span><i></i><span data-i18n="f.telaio">Telaio</span><i></i></p>
+                  <p class="tagliando__caselle"><span>☐ <span data-i18n="f.diagnosi">Diagnosi</span></span><span>☐ <span data-i18n="f.manut">Manutenzione</span></span></p>
+                  <p class="tagliando__piede" data-i18n="f.piede">da consegnare all'officina</p>
+                </div>
+                <svg class="tagliando__auto" viewBox="0 0 120 44" aria-hidden="true"><path d="M6 32 C6 26 10 24 18 23 L34 21 C40 12 50 9 62 9 C74 9 82 12 90 20 L104 22 C112 23 116 26 116 31 L116 34 L6 34 Z"/><circle cx="30" cy="34" r="7"/><circle cx="92" cy="34" r="7"/></svg>
+              </div>
+            </li>
+            <li class="riga is-staccato" data-n="2">
+              <div class="matrice">
+                <p class="matrice__n mono"><span data-i18n="f.n">Tagliando n.</span> 2</p>
+                <p class="matrice__km">30.000 km</p>
+                <p class="matrice__campo"><span class="matrice__eti mono" data-i18n="f.eseguito">Eseguito</span><span class="penna">✓ Effe Auto Service</span></p>
+              </div>
+              <div class="tagliando" aria-hidden="true">
+                <p class="tagliando__km">30.000 km</p>
+                <div class="tagliando__corpo">
+                  <p class="tagliando__t" data-i18n="f.t">Tagliando di manutenzione</p>
+                  <p class="tagliando__campi"><span data-i18n="f.auto">Autoveicolo</span><i></i><span data-i18n="f.telaio">Telaio</span><i></i></p>
+                  <p class="tagliando__caselle"><span>☐ <span data-i18n="f.diagnosi">Diagnosi</span></span><span>☐ <span data-i18n="f.manut">Manutenzione</span></span></p>
+                  <p class="tagliando__piede" data-i18n="f.piede">da consegnare all'officina</p>
+                </div>
+                <svg class="tagliando__auto" viewBox="0 0 120 44" aria-hidden="true"><path d="M6 32 C6 26 10 24 18 23 L34 21 C40 12 50 9 62 9 C74 9 82 12 90 20 L104 22 C112 23 116 26 116 31 L116 34 L6 34 Z"/><circle cx="30" cy="34" r="7"/><circle cx="92" cy="34" r="7"/></svg>
+              </div>
+            </li>
+            <li class="riga" data-n="3">
+              <div class="matrice">
+                <p class="matrice__n mono"><span data-i18n="f.n">Tagliando n.</span> 3</p>
+                <p class="matrice__km">45.000 km</p>
+                <p class="matrice__campo"><span class="matrice__eti mono" data-i18n="f.eseguito">Eseguito</span><span class="penna">✓ Effe Auto Service</span></p>
+              </div>
+              <div class="tagliando" aria-hidden="true">
+                <p class="tagliando__km">45.000 km</p>
+                <div class="tagliando__corpo">
+                  <p class="tagliando__t" data-i18n="f.t">Tagliando di manutenzione</p>
+                  <p class="tagliando__campi"><span data-i18n="f.auto">Autoveicolo</span><i></i><span data-i18n="f.telaio">Telaio</span><i></i></p>
+                  <p class="tagliando__caselle"><span>☐ <span data-i18n="f.diagnosi">Diagnosi</span></span><span>☐ <span data-i18n="f.manut">Manutenzione</span></span></p>
+                  <p class="tagliando__piede" data-i18n="f.piede">da consegnare all'officina</p>
+                </div>
+                <svg class="tagliando__auto" viewBox="0 0 120 44" aria-hidden="true"><path d="M6 32 C6 26 10 24 18 23 L34 21 C40 12 50 9 62 9 C74 9 82 12 90 20 L104 22 C112 23 116 26 116 31 L116 34 L6 34 Z"/><circle cx="30" cy="34" r="7"/><circle cx="92" cy="34" r="7"/></svg>
+              </div>
+            </li>
+          </ol>
+          <p class="libretto__completo" id="librettoCompleto" data-i18n="f.completo">Libretto completo: la macchina è pronta anche per il prossimo proprietario. <a href="#usato">Passaggio di proprietà →</a></p>
+        </div>
+        <figcaption class="libretto__nota" data-i18n="f.nota">Si chiama tagliando perché una volta, a ogni controllo, l'officina staccava un tagliando dal libretto della macchina.</figcaption>
+        <div class="libretto__azioni">
+          <p class="libretto__stato mono" id="librettoStato" aria-live="polite"></p>
+          <button type="button" class="libretto__tasto" id="tagliandoTasto" data-i18n="f.tasto">Staccate il tagliando dei 45.000 km</button>
+          <button type="button" class="libretto__tasto libretto__tasto--piano" id="tagliandoDaCapo" hidden data-i18n="f.dacapo">Da capo</button>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="dati" class="pagina" aria-labelledby="p1t">
+    <p class="pagina__num mono" aria-hidden="true">pag. 1</p>
+    <h2 id="p1t" class="pagina__t" data-i18n="p1.t">Dati dell'officina</h2>
+    <div class="dati__corpo">
+      <div class="dati__sx">
+      <dl class="scheda reveal">
+        <div><dt data-i18n="p1.rs">Ragione sociale</dt><dd class="penna">Effe Auto Service S.r.l.</dd></div>
+        <div><dt data-i18n="p1.ind">Indirizzo</dt><dd class="penna">Via Ettore Ponti 41, 20143 Milano</dd></div>
+        <div><dt data-i18n="p1.tel">Telefono e fax</dt><dd class="penna"><a href="tel:+39028911582">02 891 1582</a></dd></div>
+        <div><dt data-i18n="p1.acc">In accettazione</dt><dd class="penna">Andrea</dd></div>
+        <div><dt data-i18n="p1.tipo">Officina</dt><dd class="penna" data-i18n="p1.tipov">multimarca, con esperienza sulle Fiat</dd></div>
+        <div><dt data-i18n="p1.da">A Milano</dt><dd class="penna" data-i18n="p1.dav">da più di trent'anni</dd></div>
+        <div><dt data-i18n="p1.reg">Registro autoriparatori</dt><dd class="penna">70/4404</dd></div>
+        <div><dt data-i18n="p1.iva">Partita IVA</dt><dd class="penna">08080250155</dd></div>
+      </dl>
+      <figure class="foto foto--adesivo reveal"><button type="button" class="foto-btn" data-full="img/marchio.jpg"><img src="img/marchio.jpg" width="1000" height="641" alt="Il marchio EFFE Auto Service: il doppio ovale rosso con i raggi e la sagoma di un'auto" data-i18n-alt="p1.alt2"></button><figcaption class="didascalia" data-i18n="p1.cap2">Il nostro marchio, da vicino</figcaption></figure>
+      </div>
+      <div class="dati__foto">
+        <figure class="foto reveal"><button type="button" class="foto-btn" data-full="img/insegna.jpg"><img src="img/insegna.jpg" width="1000" height="920" alt="L'insegna a bandiera sulla via, con l'ovale rosso EFFE Auto Service" data-i18n-alt="p1.alt1"></button><figcaption class="didascalia" data-i18n="p1.cap1">L'insegna sulla via, al 41</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="manutenzione" class="pagina pagina--blu" aria-labelledby="p2t">
+    <p class="pagina__num mono" aria-hidden="true">pag. 2</p>
+    <h2 id="p2t" class="pagina__t" data-i18n="p2.t">Programma di manutenzione</h2>
+    <p class="pagina__s" data-i18n="p2.s">Lavoriamo sulle marche più diffuse. Prima la diagnosi, anche con la centralina; poi il preventivo; poi si lavora.</p>
+    <div class="tabella-wrap reveal">
+      <table class="programma">
+        <thead><tr><th scope="col" data-i18n="p2.h1">Intervento</th><th scope="col" data-i18n="p2.h2">Cosa facciamo</th><th scope="col" data-i18n="p2.h3">Note</th></tr></thead>
+        <tbody>
+          <tr><th scope="row" data-i18n="p2.r1">Tagliando e assistenza</th><td data-i18n="p2.r1c">i controlli e le sostituzioni previste per la vostra auto</td><td data-i18n="p2.r1n">per tutte le marche più diffuse</td></tr>
+          <tr><th scope="row" data-i18n="p2.r2">Diagnosi elettronica</th><td data-i18n="p2.r2c">«interfacciando la centralina con i nostri sistemi computerizzati»</td><td data-i18n="p2.r2n">prima la diagnosi, poi il preventivo</td></tr>
+          <tr><th scope="row" data-i18n="p2.r3">Riparazioni meccaniche</th><td data-i18n="p2.r3c">multimarca, con un'esperienza particolare sulle Fiat</td><td>—</td></tr>
+          <tr><th scope="row" data-i18n="p2.r4">Aria condizionata</th><td data-i18n="p2.r4c">diagnosi e riparazione del climatizzatore</td><td>—</td></tr>
+          <tr><th scope="row" data-i18n="p2.r5">Auto sostitutiva</th><td data-i18n="p2.r5c">su richiesta</td><td data-i18n="p2.r5n">chiedetela quando prenotate</td></tr>
+          <tr><th scope="row" data-i18n="p2.r6">Noleggio a lungo termine</th><td data-i18n="p2.r6c">centro convenzionato LeasePlan, oggi Ayvens</td><td data-i18n="p2.r6n">per le altre società di noleggio, chiedeteci</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <blockquote class="citazione reveal"><p data-i18n="p2.cit">«Si prendono cura dell'auto e diventano un punto di riferimento nel lungo periodo per tagliando e assistenza.»</p><footer data-i18n="p2.citchi">Antonio Mascia, recensione su Google</footer></blockquote>
+  </section>
+
+  <section id="registro" class="pagina" aria-labelledby="p3t">
+    <p class="pagina__num mono" aria-hidden="true">pag. 3</p>
+    <h2 id="p3t" class="pagina__t" data-i18n="p3.t">Registro degli interventi</h2>
+    <p class="pagina__s" data-i18n="p3.s">Alcuni lavori raccontati da chi ce li ha portati, dalle recensioni su Google, riassunti con parole nostre.</p>
+    <div class="giornata reveal" aria-labelledby="giornataT">
+      <p id="giornataT" class="giornata__t" data-i18n="p3.gt">Una Golf con l'aria condizionata rotta, e 38 gradi fuori</p>
+      <ol class="giornata__linea">
+        <li><span class="giornata__ora mono" data-i18n="p3.g1o">venerdì</span><span data-i18n="p3.g1">L'aria condizionata si rompe in viaggio, in Svizzera. Una telefonata: appuntamento per lunedì alle 8:30.</span></li>
+        <li><span class="giornata__ora mono" data-i18n="p3.g2o">lunedì 8:30</span><span data-i18n="p3.g2">Accettazione. Le offriamo un'auto sostitutiva: non le serve, lavora in zona.</span></li>
+        <li><span class="giornata__ora mono" data-i18n="p3.g3o">lunedì 14:00</span><span data-i18n="p3.g3">Diagnosi e preventivo.</span></li>
+        <li><span class="giornata__ora mono" data-i18n="p3.g4o">martedì mattina</span><span data-i18n="p3.g4">La Golf è pronta.</span></li>
+      </ol>
+    </div>
+    <div class="tabella-wrap reveal">
+      <table class="registro">
+        <caption class="solo-lettori" data-i18n="p3.cap">Registro degli interventi, dalle recensioni</caption>
+        <thead><tr><th scope="col" data-i18n="p3.h1">Quando</th><th scope="col" data-i18n="p3.h2">Auto</th><th scope="col" data-i18n="p3.h3">Intervento</th><th scope="col" data-i18n="p3.h4">Esito</th></tr></thead>
+        <tbody>
+          <tr><td class="mono" data-i18n="p3.r1q">3 anni fa</td><td>Nissan Micra</td><td data-i18n="p3.r1i">arrivata a Milano dalla Svizzera, non partiva più</td><td class="penna" data-i18n="p3.r1c">rimessa in moto per il viaggio di ritorno</td></tr>
+          <tr><td class="mono" data-i18n="p3.r2q">2 anni fa</td><td>Fiat Panda</td><td data-i18n="p3.r2i">un guasto prima di partire per un lungo viaggio</td><td class="penna" data-i18n="p3.r2c">risolto in fretta, prima di partire</td></tr>
+          <tr><td class="mono" data-i18n="p3.r3q">8 anni fa</td><td data-i18n="p3.r3a">—</td><td data-i18n="p3.r3i">un chiodo nella gomma la domenica sera, e il lunedì c'era da andare a Genova</td><td class="penna" data-i18n="p3.r3c">riparata il lunedì, in tempo record</td></tr>
+          <tr><td class="mono" data-i18n="p3.r4q">un anno fa</td><td data-i18n="p3.r4a">—</td><td data-i18n="p3.r4i">«un problema straordinario all'auto»</td><td class="penna" data-i18n="p3.r4c">risolto in tempo record</td></tr>
+          <tr><td class="mono" data-i18n="p3.r5q">7 mesi fa</td><td data-i18n="p3.r5a">—</td><td data-i18n="p3.r5i">una riparazione</td><td class="penna" data-i18n="p3.r5c">in tempi record, a un prezzo ragionevole</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="usato" class="pagina pagina--carta" aria-labelledby="p4t">
+    <p class="pagina__num mono" aria-hidden="true">pag. 4</p>
+    <h2 id="p4t" class="pagina__t" data-i18n="p4.t">Passaggio di proprietà</h2>
+    <p class="pagina__s" data-i18n="p4.s">Vendiamo anche auto usate. Prima di consegnarle le prepariamo in officina, e le pratiche del passaggio le sbrighiamo noi. Le abbiamo consegnate anche lontano, fino in Sardegna.</p>
+    <div class="usato__corpo">
+      <div class="usato__sx">
+      <figure class="foto foto--grande reveal"><button type="button" class="foto-btn" data-full="img/salone.jpg"><img src="img/salone.jpg" width="1280" height="960" alt="Un'auto usata di spalle nel salone, con la targa di cortesia EFFE Auto Service Srl" data-i18n-alt="p4.alt1"></button><figcaption class="didascalia" data-i18n="p4.cap1">Nel salone, con la targa di cortesia EFFE</figcaption></figure>
+      <figure class="foto foto--cruscotto reveal"><button type="button" class="foto-btn" data-full="img/cruscotto.jpg"><img src="img/cruscotto.jpg" width="1070" height="500" alt="Il cruscotto di una delle nostre usate: 103.912 chilometri" data-i18n-alt="p4.alt3"></button><figcaption class="didascalia" data-i18n="p4.cap3">Il cruscotto di una delle nostre usate: i chilometri sono lì da leggere</figcaption></figure>
+      </div>
+      <div class="usato__lato">
+        <ul class="usato__punti reveal">
+          <li><span class="spunta" aria-hidden="true">✓</span><span data-i18n="p4.l1">preparata in officina prima della consegna</span></li>
+          <li><span class="spunta" aria-hidden="true">✓</span><span data-i18n="p4.l2">pratiche del passaggio di proprietà sbrigate da noi</span></li>
+          <li><span class="spunta" aria-hidden="true">✓</span><span data-i18n="p4.l3">consegna organizzata anche lontano</span></li>
+        </ul>
+        <p class="usato__voto" data-i18n="p4.voto">4,8 su 57 recensioni su AutoScout24</p>
+        <div class="azioni">
+          <a class="btn btn--blu" href="https://www.autoscout24.it/concessionari/effe-auto-service-milano" target="_blank" rel="noopener"><span data-i18n="p4.as24">Le auto disponibili</span><small data-i18n="p4.as24s">su AutoScout24</small></a>
+          <a class="btn btn--linea-scura" href="tel:+393756130147"><span data-i18n="p4.andrea">Chiedete di Andrea</span><small>375 613 0147</small></a>
+        </div>
+        <figure class="foto reveal"><button type="button" class="foto-btn" data-full="img/cortile.jpg"><img src="img/cortile.jpg" width="1280" height="960" alt="Un'auto usata rossa nel cortile coi portoni blu, con la targa di cortesia EFFE" data-i18n-alt="p4.alt2"></button><figcaption class="didascalia" data-i18n="p4.cap2">Nel cortile coi portoni blu</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="note" class="note" aria-labelledby="p5t">
+    <p class="pagina__num mono" aria-hidden="true">pag. 5</p>
+    <h2 id="p5t" class="pagina__t" data-i18n="p5.t">Note dei clienti</h2>
+    <p class="pagina__s" data-i18n="p5.s">4,7 su 91 recensioni su Google e 4,8 su 57 su AutoScout24. Cinque, parola per parola.</p>
+    <div class="note__griglia">
+      <figure class="nota reveal"><blockquote data-i18n="rc.1">Conosco questa officina da diversi anni, e sono i più disponibili e cordiali di tutta Milano città. Frequento diverse officine per lavoro e conosco piuttosto bene il mondo automobilistico. Puntuali, flessibili, sempre pronti a venirti incontro. Ho avuto, di recente, un problema straordinario all'auto, e me lo hanno risolto in tempo record.</blockquote><figcaption data-i18n="rc.f1">C D · Google · un anno fa · 5 stelle</figcaption></figure>
+      <figure class="nota reveal"><blockquote data-i18n="rc.2">Ormai 15 anni che mi affido ad Andrea per la manutenzione delle mia auto. Ottimo meccanico e soprattutto onesto. […] Continuate così che ormai siete sempre più una mosca bianca!</blockquote><figcaption data-i18n="rc.f2">Francesco · Google · 5 anni fa · 5 stelle</figcaption></figure>
+      <figure class="nota reveal"><blockquote data-i18n="rc.3">Ottimo servizio! Hanno riparato la mia auto in tempi record e a un prezzo ragionevole. Il personale è stato molto professionale e disponibile. La mia auto è come nuova! Lo consiglio a tutti.</blockquote><figcaption data-i18n="rc.f3">Luca Notarstefano · Google · 7 mesi fa · 5 stelle</figcaption></figure>
+      <figure class="nota reveal"><blockquote data-i18n="rc.4">Esperienza d'acquisto perfetta! Ho comprato una Ford Puma da loro pur trovandomi a 900 km di distanza. Nonostante la notevole distanza, Andrea si è premurato in ogni momento di tranquillizzarmi, rispondendo a ogni mio dubbio e curando ogni minimo dettaglio con estrema serietà. Super consigliato!</blockquote><figcaption data-i18n="rc.f4">Ylenia · AutoScout24 · giugno 2026</figcaption></figure>
+      <figure class="nota reveal"><blockquote data-i18n="rc.5">Andrea getilissimo, molto disponibile con gli orari e molto informato sulle caratteristiche della vettura - hanno consegnato la macchina tagliandata da loro. davvero molto molto accurati e attenti</blockquote><figcaption data-i18n="rc.f5">Roberta · AutoScout24 · agosto 2026</figcaption></figure>
+    </div>
+    <p class="note__piede" data-i18n="rc.piede">Recensioni pubbliche su Google e su AutoScout24, copiate parola per parola; «[…]» segna dove sono state accorciate.</p>
+  </section>
+
+  <section id="orari" class="orari-dove" aria-labelledby="p6t">
+    <div class="orari-dove__info">
+      <p class="pagina__num mono" aria-hidden="true">pag. 6</p>
+      <h2 id="p6t" class="pagina__t" data-i18n="p6.t">Orari e dove</h2>
+      <p class="orari-dove__ind">Via Ettore Ponti 41 · 20143 Milano <span data-i18n="p6.zona">(Barona)</span></p>
+      <p class="stato"><span id="orarioStato2" aria-hidden="true"></span></p>
+      <table class="orari">
+        <caption class="orari__cap" data-i18n="p6.cap">Orari</caption>
+        <tbody>
+          <tr data-day="1"><th scope="row" data-i18n="o.lun">Lunedì</th><td>8:30–12:30 · 14:00–18:00</td></tr>
+          <tr data-day="2"><th scope="row" data-i18n="o.mar">Martedì</th><td>8:30–12:30 · 14:00–18:00</td></tr>
+          <tr data-day="3"><th scope="row" data-i18n="o.mer">Mercoledì</th><td>8:30–12:30 · 14:00–18:00</td></tr>
+          <tr data-day="4"><th scope="row" data-i18n="o.gio">Giovedì</th><td>8:30–12:30 · 14:00–18:00</td></tr>
+          <tr data-day="5"><th scope="row" data-i18n="o.ven">Venerdì</th><td>8:30–12:30 · 14:00–18:00</td></tr>
+          <tr data-day="6"><th scope="row" data-i18n="o.sab">Sabato</th><td>9:00–12:30</td></tr>
+          <tr data-day="0"><th scope="row" data-i18n="o.dom">Domenica</th><td data-i18n="o.chiuso">chiuso</td></tr>
+        </tbody>
+      </table>
+      <ul class="contatti">
+        <li><span class="contatti__eti" data-i18n="p6.tel">Officina, telefono e fax</span><a href="tel:+39028911582">02 891 1582</a></li>
+        <li><span class="contatti__eti" data-i18n="p6.usato">L'usato, Andrea</span><a href="tel:+393756130147">375 613 0147</a></li>
+        <li><span class="contatti__eti">AutoScout24</span><a href="https://www.autoscout24.it/concessionari/effe-auto-service-milano" target="_blank" rel="noopener" data-i18n="p6.as24">le auto disponibili</a></li>
+      </ul>
+      <p class="orari-dove__nota" data-i18n="p6.nota">Conviene prenotare. Ingresso e parcheggio accessibili in sedia a rotelle; si paga anche con la carta.</p>
+    </div>
+    <div class="mappa">
+      <iframe src="https://www.google.com/maps?q=Effe+Auto+Service,+Via+Ettore+Ponti+41,+20143+Milano&amp;z=16&amp;output=embed" title="Mappa: Effe Auto Service, Via Ettore Ponti 41, Milano" data-i18n-title="p6.mappa" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a class="btn btn--rosso" href="https://www.google.com/maps/search/?api=1&amp;query=Effe+Auto+Service+Via+Ettore+Ponti+41+Milano" target="_blank" rel="noopener"><span data-i18n="p6.btn">Indicazioni stradali</span></a>
+    </div>
+  </section>
+
+  <section id="faq" class="faq" aria-labelledby="faqT">
+    <h2 id="faqT" class="pagina__t" data-i18n="q.t">Domande frequenti</h2>
+    <div class="faq__lista">
+      <details class="reveal"><summary data-i18n="q.1">Su quali marche lavorate?</summary><p data-i18n="q.1r">Sulle più diffuse: siamo un'officina multimarca, con un'esperienza particolare sulle Fiat.</p></details>
+      <details class="reveal"><summary data-i18n="q.2">Come si prenota?</summary><p data-i18n="q.2r">Al telefono, allo 02 891 1582. Conviene prenotare.</p></details>
+      <details class="reveal"><summary data-i18n="q.3">Avete un'auto sostitutiva?</summary><p data-i18n="q.3r">Su richiesta: chiedetela quando prenotate.</p></details>
+      <details class="reveal"><summary data-i18n="q.4">Vendete auto usate?</summary><p data-i18n="q.4r">Sì. Le auto disponibili sono sul nostro profilo AutoScout24; per informazioni chiedete di Andrea, al 375 613 0147.</p></details>
+      <details class="reveal"><summary data-i18n="q.5">Le usate passano dall'officina?</summary><p data-i18n="q.5r">Sì: prima della consegna le prepariamo in officina. Chiedete ad Andrea cosa è stato fatto sull'auto che vi interessa.</p></details>
+      <details class="reveal"><summary data-i18n="q.6">Riparate le auto a noleggio a lungo termine?</summary><p data-i18n="q.6r">Siamo centro convenzionato LeasePlan, oggi Ayvens. Per le altre società di noleggio, chiedeteci.</p></details>
+      <details class="reveal"><summary data-i18n="q.7">Quali sono gli orari?</summary><p data-i18n="q.7r">Dal lunedì al venerdì dalle 8:30 alle 12:30 e dalle 14 alle 18, il sabato dalle 9 alle 12:30. La domenica è chiuso.</p></details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="piede">
+  <p class="marchio marchio--piede"><span class="marchio__effe">EFFE</span><span class="marchio__sotto">Auto Service</span></p>
+  <p>Effe Auto Service S.r.l. · Via Ettore Ponti 41, 20143 Milano · <span data-i18n="z.piva">P.IVA</span> 08080250155 · <span data-i18n="z.reg">Reg. Autoriparatori</span> 70/4404</p>
+  <p><a href="tel:+39028911582">02 891 1582</a> · <span data-i18n="z.usato">usato</span> <a href="tel:+393756130147">375 613 0147</a></p>
+  <p class="piede__cred" data-i18n="z.cred">Sito dimostrativo realizzato da <a href="https://bespokestud.io" rel="noopener">Bespoke Studio</a> · testi dal loro sito, dal loro profilo AutoScout24 e dalla scheda Google (settembre 2026); recensioni pubbliche su Google e su AutoScout24; fotografie dalla scheda Google e dal loro profilo AutoScout24.</p>
+</footer>
+
+<nav id="actionBar" class="barra" aria-label="Azioni rapide" data-i18n-aria="x.nav">
+  <a href="tel:+39028911582" data-i18n="x.chiama">Chiama</a>
+  <a href="#usato" data-i18n="x.usato">Usato</a>
+  <a href="https://www.google.com/maps/search/?api=1&amp;query=Effe+Auto+Service+Via+Ettore+Ponti+41+Milano" target="_blank" rel="noopener" data-i18n="x.mappa">Mappa</a>
+  <a href="#orari" data-i18n="x.orari">Orari</a>
+</nav>
+
+<div id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Foto ingrandita" data-i18n-aria="m.lightbox">
+  <button id="lightboxClose" type="button" aria-label="Chiudi" data-i18n-aria="m.chiudi">×</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+</body>
+</html>

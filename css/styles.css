@@ -1,0 +1,316 @@
+/* Effe Auto Service (#211) — «Tagliandata da noi.»
+   Il sito è il loro libretto di manutenzione: la copertina bianca con la banda blu (come i libretti del Servizio Assistenza
+   degli anni '70), le pagine numerate, le schede compilate a penna. La firma è la pagina dei tagliandi a guilloché: a ogni
+   controllo l'officina ne stacca uno lungo la perforazione e la matrice resta nel libretto, compilata. Stato finale in HTML:
+   staccati i tagliandi dei 15.000 e dei 30.000 km, attaccato quello dei 45.000. */
+
+:root {
+  --rosso: #D32A2E;
+  --rosso-scuro: #A81C21;
+  --blu: #1F3C8C;
+  --blu-scuro: #14285F;
+  --nero: #161616;
+  --carta: #F6F1E3;
+  --carta-2: #E7DFC9;
+  --carta-3: #D9CFB4;
+  --bianco: #FFFDF7;
+  --penna: #2440A0;
+  --lilla: #8E6FA8;
+  --f-titolo: 'Shrikhand', 'Cooper Black', Georgia, serif;
+  --f-testo: 'Arimo', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --f-mono: 'Anonymous Pro', 'Courier New', monospace;
+  --f-penna: 'Nanum Pen Script', 'Bradley Hand', 'Segoe Print', cursive;
+  --f-script: 'Damion', 'Brush Script MT', cursive;
+  --gutter: clamp(16px, 4vw, 56px);
+  --largo: 1220px;
+}
+
+[hidden] { display: none !important; }
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 84px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { margin: 0; background: var(--carta); color: var(--nero); font: 400 1.04rem/1.6 var(--f-testo); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+p { margin: 0 0 1em; }
+h1, h2, h3 { margin: 0; }
+:focus-visible { outline: 3px solid var(--rosso); outline-offset: 3px; }
+main > section { overflow-x: clip; }
+.solo-lettori { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.mono { font-family: var(--f-mono); }
+.penna { font-family: var(--f-penna); color: var(--penna); font-size: 1.5em; line-height: 1.05; }
+
+/* ── reveal: nascosti solo con JS ── */
+.js .reveal { opacity: 0; }
+.js .reveal.in-view { opacity: 1; transition: opacity .6s ease; }
+html:not(.js) .reveal { opacity: 1; }
+.reduced-motion .reveal { opacity: 1 !important; }
+
+/* ── il marchio, ricostruito dal loro ovale: doppio anello rosso, EFFE a lettere tonde, «Auto Service» in corsivo ── */
+.marchio { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; margin: 0; padding: .28em 1.05em .34em; border: .16em solid var(--rosso); border-radius: 50%; box-shadow: 0 0 0 .13em var(--bianco), 0 0 0 .24em var(--rosso); background: var(--bianco); line-height: 1; white-space: nowrap; }
+.marchio__effe { font: 400 1.5em/1 var(--f-titolo); color: var(--rosso); letter-spacing: .02em; }
+.marchio__sotto { font: 400 .78em/1 var(--f-script); color: var(--nero); margin-top: -.05em; }
+.marchio--grande { font-size: clamp(1.8rem, 6vw, 3.2rem); }
+.marchio--piede { font-size: 1.1rem; margin-bottom: 18px; }
+
+/* ── intro ── */
+.intro { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center; background: var(--blu); color: var(--carta); transition: opacity .5s ease; animation: intro-sicura .01s linear 8s forwards; }
+.no-js .intro { display: none; }
+.intro.hide { opacity: 0; pointer-events: none; }
+@keyframes intro-sicura { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+.intro__in { display: flex; flex-direction: column; align-items: center; gap: 22px; padding: 0 24px; text-align: center; animation: intro-su .9s ease both; }
+@keyframes intro-su { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.intro__cosa { margin: 0; font: 700 .95rem/1.4 var(--f-mono); letter-spacing: .22em; text-transform: uppercase; }
+.intro__salta { position: absolute; right: 20px; bottom: 20px; background: none; border: 1.5px solid rgba(246, 241, 227, .7); border-radius: 3px; color: var(--carta); padding: 10px 16px; font: 700 .76rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; cursor: pointer; }
+
+/* ── barra mobile, lightbox ── */
+.barra { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: none; grid-template-columns: repeat(4, 1fr); background: var(--blu-scuro); border-top: 3px solid var(--rosso); padding-bottom: env(safe-area-inset-bottom); transform: translateY(110%); transition: transform .3s ease; }
+.barra.is-visible { transform: none; }
+.barra a { padding: 16px 4px; text-align: center; text-decoration: none; color: var(--carta); font: 700 .78rem/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; border-left: 1px solid rgba(246, 241, 227, .16); }
+.barra a:first-child { border-left: 0; background: var(--rosso); }
+#lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(12, 18, 36, .94); display: flex; align-items: center; justify-content: center; padding: 24px; }
+#lightboxImg { max-width: 94vw; max-height: 88vh; width: auto; height: auto; border: 6px solid var(--bianco); }
+#lightboxClose { position: absolute; top: 14px; right: 14px; width: 48px; height: 48px; border: 1.5px solid rgba(246, 241, 227, .6); border-radius: 3px; background: none; color: var(--carta); font: 400 28px/1 var(--f-testo); cursor: pointer; }
+
+/* ── testata ── */
+.testata { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: clamp(12px, 2vw, 24px); padding: 8px var(--gutter); background: var(--bianco); border-bottom: 5px solid var(--blu); }
+.testata__logo { display: inline-flex; text-decoration: none; font-size: .78rem; padding: 6px 4px; }
+.testata__nav { display: flex; align-items: center; gap: clamp(10px, 1.5vw, 22px); margin-left: auto; }
+.testata__nav a { display: inline-flex; align-items: baseline; gap: 6px; text-decoration: none; font: 600 .92rem/1 var(--f-testo); padding: 10px 0; white-space: nowrap; }
+.testata__nav a:hover { color: var(--rosso); }
+.pg { font: 700 .74rem/1 var(--f-mono); color: var(--blu); }
+.testata__destra { display: flex; align-items: center; gap: 12px; }
+.lingue { display: flex; border: 1.5px solid var(--nero); border-radius: 3px; overflow: hidden; }
+.lingue button { background: none; border: 0; padding: 7px 10px; font: 700 .74rem/1 var(--f-mono); letter-spacing: .08em; cursor: pointer; color: var(--nero); }
+.lingue button[aria-pressed="true"] { background: var(--nero); color: var(--bianco); }
+.testata__tel { text-decoration: none; background: var(--rosso); color: var(--bianco); border-radius: 3px; padding: 11px 16px; font: 700 .84rem/1 var(--f-testo); }
+#burger { display: none; width: 46px; height: 46px; border: 1.5px solid var(--nero); border-radius: 3px; background: none; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 0; }
+#burger span { display: block; width: 18px; height: 2px; background: var(--nero); }
+
+/* ── bottoni, etichette ── */
+.btn { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; min-height: 54px; padding: 10px 22px; border-radius: 4px; text-decoration: none; font: 700 1rem/1.2 var(--f-testo); text-align: center; border: 2px solid transparent; }
+.btn small { font: 700 .8rem/1.3 var(--f-mono); letter-spacing: .04em; opacity: .9; margin-top: 3px; }
+.btn--rosso { background: var(--rosso); color: var(--bianco); box-shadow: 0 4px 0 var(--rosso-scuro); }
+.btn--blu { background: var(--blu); color: var(--bianco); box-shadow: 0 4px 0 var(--blu-scuro); }
+.btn--linea { border-color: var(--blu); color: var(--blu); }
+.btn--linea-scura { border-color: var(--nero); color: var(--nero); }
+.btn:active { transform: translateY(2px); box-shadow: none; }
+.azioni { display: flex; flex-wrap: wrap; gap: 14px; }
+.kicker { margin: 0 0 12px; font: 700 .82rem/1.3 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--blu); }
+.didascalia { margin: 10px 0 0; font: 400 .92rem/1.4 var(--f-mono); color: #4A4A4A; }
+
+/* ── la copertina: il libretto lungo, bianco con la banda blu ── */
+.copertina { background: var(--bianco); border-bottom: 1px solid var(--carta-3); }
+.copertina__banda { display: flex; justify-content: space-between; gap: 18px; padding: 12px var(--gutter); background: var(--blu); color: var(--carta); font: 700 .82rem/1.3 var(--f-mono); letter-spacing: .22em; text-transform: uppercase; }
+.copertina__corpo { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(26px, 3.4vw, 56px); align-items: center; max-width: 1360px; margin: 0 auto; padding: clamp(34px, 4.4vw, 64px) var(--gutter) clamp(40px, 5vw, 72px); }
+.copertina__t { margin: 0 0 20px; padding-right: .12em; font: 400 clamp(2.6rem, 5.4vw, 5.2rem)/1.04 var(--f-titolo); color: var(--rosso); }
+.copertina__s { max-width: 32em; font-size: 1.16rem; line-height: 1.55; }
+.copertina__voti { margin: 22px 0 0; font: 700 .9rem/1.5 var(--f-mono); color: #3A3A3A; }
+#orarioStato:not(:empty)::before { content: "· "; }
+
+/* la firma: la pagina dei tagliandi */
+.libretto { margin: 0; }
+.libretto__pagina { position: relative; padding: 16px 16px 14px; background: var(--carta-2); border: 1px solid var(--carta-3); border-radius: 4px; box-shadow: 0 22px 40px -24px rgba(20, 40, 95, .55), 0 2px 0 var(--carta-3); }
+.libretto__testa { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: .82rem; letter-spacing: .18em; text-transform: uppercase; color: var(--blu); }
+.libretto__marchio { font: 400 1.05rem/1 var(--f-titolo); letter-spacing: 0; text-transform: none; color: var(--rosso); }
+.tagliandi { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.riga { position: relative; display: grid; grid-template-columns: minmax(0, .36fr) minmax(0, .64fr); min-height: 128px; }
+.matrice { position: relative; padding: 12px 16px 10px 14px; background: var(--carta); border-radius: 3px 0 0 3px; }
+.matrice__n { margin: 0; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; color: #555; }
+.matrice__km { margin: 2px 0 10px; font: 400 1.35rem/1 var(--f-titolo); color: var(--blu); }
+.matrice__campo { display: grid; gap: 2px; margin: 0; border-top: 1px dashed #9C937D; padding-top: 6px; }
+.matrice__eti { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: #555; }
+.matrice__campo .penna { font-size: 1.45rem; min-height: 1.1em; }
+.riga:not(.is-staccato) .matrice__campo .penna { clip-path: inset(0 100% 0 0); }
+/* la perforazione con la forbicina */
+.matrice::after { content: "✂"; position: absolute; top: -9px; right: -9px; z-index: 2; font-size: .9rem; color: #6D6453; }
+.riga::before { content: ""; position: absolute; top: 4px; bottom: 4px; left: 36%; z-index: 2; border-left: 2px dotted #6D6453; pointer-events: none; }
+.riga.is-staccato::before, .riga.is-strappando::before { display: none; }
+.riga.is-staccato .matrice::after { display: none; }
+/* il bordo strappato: denti di carta sul lato destro della matrice */
+.riga.is-staccato .matrice, .riga.is-strappando .matrice { border-radius: 3px 0 0 3px; }
+.riga.is-staccato .matrice::before, .riga.is-strappando .matrice::before { content: ""; position: absolute; top: 0; bottom: 0; right: -7px; width: 7px; background: linear-gradient(135deg, var(--carta) 50%, transparent 50%) 0 0 / 7px 8px, linear-gradient(45deg, var(--carta) 50%, transparent 50%) 0 4px / 7px 8px; background-repeat: repeat-y; }
+/* il tagliando: fondo a guilloché, i km in verticale, l'auto del loro marchio */
+.tagliando { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; padding: 10px 12px 10px 10px; background: var(--bianco) url("../img/guilloche.svg") center / cover no-repeat; border-radius: 0 3px 3px 0; border: 1px solid #CDBFD9; border-left: 0; overflow: hidden; transform-origin: 100% 0; will-change: transform; }
+.riga.is-staccato .tagliando { visibility: hidden; }
+.tagliando__km { margin: 0; writing-mode: vertical-rl; transform: rotate(180deg); padding: 6px 4px; background: var(--rosso); color: var(--bianco); font: 700 .92rem/1 var(--f-mono); letter-spacing: .08em; text-align: center; border-radius: 2px; }
+.tagliando__corpo { display: grid; align-content: space-between; gap: 4px; }
+.tagliando__t { margin: 0; font: 700 .82rem/1.2 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--blu-scuro); }
+.tagliando__campi { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 8px; margin: 0; font: 400 .74rem/1.4 var(--f-mono); color: #3A3A3A; }
+.tagliando__campi i { border-bottom: 1px solid #7E7466; align-self: end; margin-bottom: 4px; }
+.tagliando__caselle { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; font: 400 .76rem/1.3 var(--f-mono); }
+.tagliando__piede { margin: 0; font: italic 400 .74rem/1.3 var(--f-testo); color: #4A4A4A; }
+.tagliando__auto { position: absolute; right: 10px; top: 10px; width: 64px; height: auto; fill: var(--nero); opacity: .85; }
+.tagliando__auto circle { stroke: var(--bianco); stroke-width: 2; }
+/* il libretto completo e i comandi */
+.libretto__completo { display: none; margin: 12px 0 0; padding: 10px 12px; background: var(--bianco); border-left: 4px solid var(--rosso); font-size: .98rem; }
+.libretto.is-completo .libretto__completo { display: block; }
+.libretto__completo a { font-weight: 700; color: var(--blu); }
+.libretto__nota { margin: 12px 2px 0; font: italic 400 .92rem/1.45 var(--f-testo); color: #4A4A4A; }
+.libretto__azioni { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 14px; margin-top: 12px; }
+.libretto__stato { margin: 0; font-size: .86rem; color: var(--blu); min-height: 1.3em; }
+.libretto__tasto { background: var(--blu); color: var(--bianco); border: 0; border-radius: 3px; padding: 12px 16px; font: 700 .84rem/1.2 var(--f-mono); letter-spacing: .04em; cursor: pointer; box-shadow: 0 3px 0 var(--blu-scuro); }
+.libretto__tasto--piano { background: none; color: var(--blu); border: 1.5px solid var(--blu); box-shadow: none; }
+.no-js .libretto__azioni { display: none; }
+
+/* ── le pagine del libretto ── */
+.pagina { position: relative; padding: clamp(44px, 5vw, 80px) var(--gutter); }
+.pagina > * { max-width: var(--largo); margin-left: auto; margin-right: auto; }
+.pagina__num { display: block; margin-bottom: 10px; font-size: .86rem; letter-spacing: .14em; text-transform: uppercase; color: var(--blu); }
+.pagina__t { font: 400 clamp(2.2rem, 4.6vw, 3.8rem)/1.05 var(--f-titolo); color: var(--nero); margin-bottom: 14px; }
+.pagina > .pagina__s { max-width: var(--largo); padding-right: max(0px, calc(100% - 44em)); font-size: 1.14rem; margin-bottom: clamp(24px, 3vw, 40px); }
+.pagina--blu { background: var(--blu); color: var(--carta); }
+.pagina--blu .pagina__t { color: var(--bianco); }
+.pagina--blu .pagina__num { color: #AFC0EA; }
+.pagina--carta { background: var(--bianco); border-top: 1px solid var(--carta-3); border-bottom: 1px solid var(--carta-3); }
+
+/* pag. 1: la scheda compilata a penna */
+.dati__corpo { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(22px, 3.4vw, 54px); align-items: start; }
+.scheda { margin: 0; padding: clamp(16px, 2vw, 26px); background: var(--bianco); border: 1px solid var(--carta-3); border-radius: 4px; box-shadow: 0 2px 0 var(--carta-3); }
+.scheda div { display: grid; grid-template-columns: minmax(0, .42fr) minmax(0, .58fr); gap: 4px 14px; align-items: end; padding: 10px 0 6px; border-bottom: 1px solid #B9AE93; }
+.scheda div:last-child { border-bottom: 0; }
+.scheda dt { font: 700 .8rem/1.3 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: #4A4A4A; }
+.scheda dd { margin: 0; font-size: 1.62rem; line-height: 1; }
+.scheda dd a { text-decoration: none; }
+.dati__sx { display: grid; gap: 30px; }
+.dati__foto { display: grid; gap: 22px; }
+.foto { margin: 0; }
+.foto-btn { display: block; width: 100%; padding: 0; border: 0; background: var(--nero); cursor: zoom-in; border-radius: 3px; overflow: hidden; }
+.foto-btn img { width: 100%; }
+.dati__foto .foto:first-child .foto-btn img { aspect-ratio: 5 / 4; object-fit: cover; object-position: 50% 30%; }
+.foto--adesivo { width: min(70%, 380px); justify-self: start; margin-left: 12px; transform: rotate(-3deg); }
+.foto--adesivo .foto-btn { border: 8px solid var(--bianco); box-shadow: 0 10px 22px -12px rgba(0, 0, 0, .45); background: var(--bianco); }
+
+/* pag. 2: il programma di manutenzione */
+.tabella-wrap { margin-bottom: clamp(26px, 3vw, 44px); }
+.programma, .registro { width: 100%; border-collapse: collapse; font-size: 1rem; }
+.programma { border: 1.5px solid rgba(246, 241, 227, .7); }
+.programma thead th { background: var(--carta); color: var(--blu-scuro); font: 700 .78rem/1.2 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; text-align: left; padding: 10px 14px; }
+.programma td, .programma tbody th { padding: 12px 14px; border-top: 1px solid rgba(246, 241, 227, .28); text-align: left; vertical-align: top; }
+.programma tbody th { font-weight: 700; width: 26%; }
+.programma td:last-child { font-family: var(--f-mono); color: #D8E1F7; }
+.pagina > .citazione { margin: 0 auto; max-width: var(--largo); padding-left: 20px; padding-right: max(0px, calc(100% - 42em)); border-left: 4px solid var(--rosso); }
+.citazione p { font: 400 clamp(1.3rem, 2.3vw, 1.9rem)/1.3 var(--f-titolo); color: var(--bianco); margin-bottom: 10px; }
+.citazione footer { font: 700 .82rem/1.4 var(--f-mono); color: #C9D4F0; }
+
+/* pag. 3: il registro e la giornata della Golf */
+.giornata { margin-bottom: clamp(26px, 3vw, 44px); padding: clamp(16px, 2vw, 26px); background: var(--bianco); border: 1px solid var(--carta-3); border-radius: 4px; }
+.giornata__t { margin: 0 0 16px; font: 700 1.1rem/1.3 var(--f-testo); }
+.giornata__linea { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; position: relative; }
+.giornata__linea::before { content: ""; position: absolute; left: 6px; right: 6px; top: 7px; border-top: 2px dashed var(--blu); }
+.giornata__linea li { position: relative; padding-top: 24px; display: grid; gap: 6px; font-size: .98rem; }
+.giornata__linea li::before { content: ""; position: absolute; top: 0; left: 0; width: 16px; height: 16px; border-radius: 50%; background: var(--bianco); border: 3px solid var(--rosso); }
+.giornata__linea li:last-child::before { background: var(--rosso); }
+.giornata__ora { font-weight: 700; font-size: .92rem; letter-spacing: .06em; text-transform: uppercase; color: var(--blu); }
+.registro { background: var(--bianco); border: 1.5px solid var(--nero); }
+.registro thead th { background: var(--nero); color: var(--bianco); font: 700 .78rem/1.2 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; text-align: left; padding: 10px 14px; }
+.registro td { padding: 11px 14px; border-top: 1px solid var(--carta-3); vertical-align: top; }
+.registro td.mono { white-space: nowrap; font-size: .92rem; }
+.registro td.penna { font-size: 1.45rem; }
+
+/* pag. 4: l'usato */
+.usato__corpo { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(20px, 3vw, 44px); align-items: start; }
+.usato__sx { display: grid; gap: 22px; }
+.usato__lato { display: grid; gap: 20px; }
+.usato__punti { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 1.08rem; }
+.usato__punti li { display: flex; gap: 12px; align-items: baseline; }
+.spunta { font: 400 1.6rem/1 var(--f-penna); color: var(--penna); }
+.usato__voto { margin: 0; font: 700 .9rem/1.4 var(--f-mono); color: var(--blu); }
+.foto--grande .foto-btn img { aspect-ratio: 4 / 3; object-fit: cover; }
+.usato__lato .foto-btn img { aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 45%; }
+.foto--cruscotto .foto-btn img { aspect-ratio: 107 / 50; }
+
+/* pag. 5: le note dei clienti */
+.note { padding: clamp(44px, 5vw, 80px) var(--gutter); background: var(--carta); }
+.note > * { max-width: var(--largo); margin-left: auto; margin-right: auto; }
+.note__griglia { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 18px; }
+.nota { margin: 0; padding: 22px 22px 18px; background: var(--bianco); border: 1px solid var(--carta-3); border-top: 6px solid var(--blu); border-radius: 3px; }
+.nota blockquote { margin: 0 0 14px; font-size: 1.04rem; line-height: 1.6; }
+.nota figcaption { font: 700 .8rem/1.4 var(--f-mono); color: var(--blu); }
+.note__piede { margin: 22px auto 0; font: 400 .84rem/1.5 var(--f-mono); color: #4A4A4A; }
+
+/* pag. 6: orari e dove */
+.orari-dove { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(24px, 3.4vw, 52px); padding: clamp(44px, 5vw, 80px) max(var(--gutter), calc((100% - var(--largo)) / 2)); background: var(--bianco); border-top: 5px solid var(--blu); }
+.orari-dove__ind { font: 700 1.05rem/1.4 var(--f-testo); }
+.stato { margin: 0 0 14px; font: 700 .9rem/1.4 var(--f-mono); color: var(--rosso-scuro); min-height: 1.4em; }
+.orari { width: 100%; border-collapse: collapse; margin-bottom: 18px; border: 1.5px solid var(--nero); }
+.orari__cap { caption-side: top; text-align: left; padding: 0 0 8px; font: 700 .8rem/1.3 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--blu); }
+.orari th, .orari td { padding: 9px 12px; border-top: 1px solid var(--carta-3); text-align: left; font-weight: 400; }
+.orari th { font: 700 .92rem/1.4 var(--f-testo); width: 34%; }
+.orari td { font-family: var(--f-mono); font-size: .98rem; }
+.orari tr.is-today th, .orari tr.is-today td { background: var(--blu); color: var(--bianco); }
+.contatti { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 8px; }
+.contatti li { display: flex; flex-wrap: wrap; gap: 2px 14px; align-items: baseline; }
+.contatti__eti { min-width: 13em; font: 700 .8rem/1.4 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: #4A4A4A; }
+.contatti a { font-weight: 700; }
+.orari-dove__nota { font-size: .98rem; color: #3A3A3A; }
+.mappa { display: grid; gap: 14px; align-content: start; }
+.mappa iframe { width: 100%; height: clamp(320px, 42vw, 520px); border: 1.5px solid var(--nero); border-radius: 3px; display: block; background: var(--carta-2); }
+.mappa .btn { justify-self: start; }
+
+/* domande */
+.faq { padding: clamp(40px, 5vw, 76px) var(--gutter); }
+.faq > * { max-width: var(--largo); margin-left: auto; margin-right: auto; }
+.faq__lista { border-top: 2px solid var(--nero); }
+.faq details { border-bottom: 1px solid var(--carta-3); }
+.faq summary { position: relative; padding: 16px 44px 16px 0; font: 700 1.08rem/1.35 var(--f-testo); cursor: pointer; list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 6px; top: 12px; font: 700 1.6rem/1 var(--f-mono); color: var(--rosso); }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { max-width: 46em; padding-bottom: 16px; margin: 0; }
+
+/* piede */
+.piede { background: var(--blu-scuro); color: #C9D4F0; padding: 40px var(--gutter) 48px; font-size: .95rem; text-align: center; }
+.piede > * { max-width: var(--largo); margin-left: auto; margin-right: auto; }
+.piede__cred { margin-top: 18px; font: 400 .8rem/1.6 var(--f-mono); color: #9FB0DA; }
+.piede a { color: var(--bianco); }
+
+/* ── responsive ── */
+@media (max-width: 1140px) {
+  #burger { display: flex; }
+  .testata__nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 8px var(--gutter) 18px; background: var(--bianco); border-bottom: 5px solid var(--blu); }
+  .testata__nav.nav-open { display: flex; }
+  .testata__nav a { font-size: 1.04rem; padding: 12px 0; border-bottom: 1px solid var(--carta-3); }
+  .testata__destra { margin-left: auto; }
+  .barra { display: grid; }
+}
+@media (max-width: 980px) {
+  .copertina__corpo { grid-template-columns: minmax(0, 1fr); }
+  .dati__corpo, .usato__corpo, .orari-dove { grid-template-columns: minmax(0, 1fr); }
+  .giornata__linea { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; }
+  .giornata__linea::before { display: none; }
+}
+@media (max-width: 700px) {
+  .copertina__banda span:last-child { display: none; }
+  .testata__tel { display: none; }
+  .riga { grid-template-columns: minmax(0, .44fr) minmax(0, .56fr); min-height: 112px; }
+  .riga::before { left: 44%; }
+  .matrice__n { font-size: .7rem; letter-spacing: .04em; }
+  .tagliando__auto { display: none; }
+  .tagliando { gap: 8px; padding: 8px 8px 8px 6px; }
+  .tagliando__campi { display: none; }
+  .programma thead, .registro thead { display: none; }
+  .programma tr, .registro tr { display: grid; padding: 10px 0; border-top: 1px solid rgba(128, 128, 128, .3); }
+  .programma tbody tr:first-child, .registro tbody tr:first-child { border-top: 0; }
+  .programma td, .programma tbody th, .registro td { border: 0; padding: 2px 14px; width: auto; }
+  .scheda div { grid-template-columns: minmax(0, 1fr); }
+  .foto--adesivo { width: 88%; }
+}
+@media (max-width: 480px) {
+  .testata__logo { font-size: .66rem; }
+  .copertina__t { font-size: 2.7rem; }
+  .azioni .btn { width: 100%; }
+  .libretto__pagina { padding: 12px 10px; }
+  .matrice { padding: 10px 10px 8px; }
+  .matrice__km { font-size: 1.1rem; }
+  .matrice__campo .penna { font-size: 1.22rem; }
+  .tagliando__t { font-size: .72rem; letter-spacing: .08em; }
+  .tagliando__caselle { font-size: .7rem; gap: 2px 8px; }
+  .giornata__linea { grid-template-columns: minmax(0, 1fr); }
+  .contatti__eti { min-width: 0; width: 100%; }
+  .libretto__azioni { flex-direction: column; align-items: stretch; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro__in { animation: none; }
+}
